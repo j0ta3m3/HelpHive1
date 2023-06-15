@@ -159,6 +159,7 @@ fun AddPublicacionButton(
     }
 }
 
+// Filtra lo introducido en la remuneracion y pasa solo los numeros
 private fun String.filterRemuneration(): String {
     return this.replace(Regex("[^0-9,.]"), "")
 }

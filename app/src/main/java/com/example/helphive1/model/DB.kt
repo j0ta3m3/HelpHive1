@@ -16,7 +16,7 @@ class DBGestor {
 
     private val firebaseDatabase = FirebaseFirestore.getInstance()
 
-    // Reference to the Firebase Firestore
+    // Referencia Firebase Firestore
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val auth: FirebaseAuth = Firebase.auth
 
@@ -61,16 +61,16 @@ class DBGestor {
     }
 
     fun updateUserProfilePictureUrl(newProfilePictureUrl: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        // Get the current user's ID
+
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
-        // If the user is not logged in, return an error
+
         if (userId == null) {
             onFailure("User not logged in.")
             return
         }
 
-        // Update the user's profile picture URL in the database
+
         db.collection("users").document(userId).update("profilePictureUrl", newProfilePictureUrl)
             .addOnSuccessListener {
                 onSuccess()

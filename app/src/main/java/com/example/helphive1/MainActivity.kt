@@ -31,8 +31,10 @@ import com.example.helphive1.ui.composable.search.SearchViewModel
 import com.example.helphive1.ui.theme.HelpHive1Theme
 import com.google.firebase.auth.FirebaseAuth
 
- sealed class Screen(val ruta:String){
+ // NOTA PARA EL PROFESOR : Hay funciones que han quedado inutilizadas en el código
+ // por el posible futuro desarrollo de la aplicacion.
 
+ sealed class Screen(val ruta:String){
 
      object LOGIN : Screen( "Login")
      object REGISTER : Screen("Register")
@@ -55,10 +57,6 @@ import com.google.firebase.auth.FirebaseAuth
          super.onCreate(savedInstanceState)
          setContent {
              HelpHive1Theme {
-                 // A surface container using the 'background' color from the theme
-
-                 //       loginPage()
-                 //         HomeScreen()
 
                  val navController = rememberNavController()
                  val homeViewModel = viewModel<HomeViewModel>()

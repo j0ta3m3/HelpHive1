@@ -51,7 +51,6 @@ class PublicacionDetalleViewModel : ViewModel() {
                 }
             }
             .addOnFailureListener { exception ->
-                // Manejar el error en caso de que la obtención de la publicación falle
                 Log.e("PublicationDetailViewModel", "Error al obtener la publicación: ${exception.message}", exception)
             }
     }
@@ -79,7 +78,6 @@ class PublicacionDetalleViewModel : ViewModel() {
                 }
             }
             .addOnFailureListener { exception ->
-                // Manejar el error en caso de que la obtención de la información del autor falle
                 Log.e("PublicationDetailViewModel", "Error al obtener la información del autor: ${exception.message}", exception)
             }
     }

@@ -68,9 +68,9 @@ class ProfileViewModel : ViewModel() {
     val userData: StateFlow<Usuario?> = _userData
 
     fun getUserDataById(userId: String) {
-        // Aquí realizas la lógica para obtener los datos del usuario según su ID
-        // y luego actualizas el valor de _userData
-        // Por ejemplo:
+        // lógica para obtener los datos del usuario según su ID
+        // y luego actualiza el valor de _userData
+
         val firestore = Firebase.firestore
         val usuariosCollection = firestore.collection("usuarios")
         val userRef = usuariosCollection.document(userId)
@@ -81,7 +81,7 @@ class ProfileViewModel : ViewModel() {
                 _userData.value = usuario
             }
         }.addOnFailureListener { exception ->
-            // Manejar el error en caso de fallo al obtener los datos del usuario
+
         }
     }
 

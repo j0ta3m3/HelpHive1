@@ -119,10 +119,9 @@ fun ProfileScreen(navController: NavController, profileID: String = "") {
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent(),
         onResult = { uri: Uri? ->
-            // Aquí puedes realizar acciones con la imagen seleccionada
+
             if (uri != null) {
-                // Realiza alguna acción con la URI de la imagen
-                // Por ejemplo, muestra la imagen utilizando un ImagePainter
+
                 newProfilePictureUri.value = uri
             }
         }
@@ -145,7 +144,7 @@ fun ProfileScreen(navController: NavController, profileID: String = "") {
 
 
     val onPublicationAdded: (Publication) -> Unit = { publication ->
-        // Lógica para agregar la publicación a tu ViewModel o cualquier otra acción necesaria
+        // Lógica para agregar la publicación al ViewModel o cualquier otra acción necesaria
         publicacionViewModel.addPublicacion(
             publication,
             onSuccess = {
@@ -262,9 +261,7 @@ fun JobList(navController: NavController, userId: String) {
     LazyColumn {
         items(userPublications.value) { publication ->
             JobListItem(job = publication) {
-                // Manejar la publicación seleccionada
-                // Aquí puedes hacer algo como navegar a la pantalla de detalles de la publicación
-                // o mostrar información adicional sobre la publicación.
+
                 // navController.navigate("ruta_pantalla_detalles/${publication.id}")
             }
         }
@@ -276,7 +273,7 @@ fun JobListItem(job: Publication, onJobClicked: () -> Unit) {
     val showDelegarPopup = remember { mutableStateOf(false) }
     val showFinalizarPopup = remember { mutableStateOf(false) }
     val viewm: PublicacionViewModel = viewModel()
-    var finalizacionExitosa by remember { mutableStateOf(false) } // Agrega el estado para la finalización exitosa
+    var finalizacionExitosa by remember { mutableStateOf(false) }
 
     Card(
         modifier = Modifier

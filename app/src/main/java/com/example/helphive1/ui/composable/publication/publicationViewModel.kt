@@ -45,19 +45,17 @@ class PublicacionViewModel(private val onDelegarClick: ((String) -> Unit)? = nul
                         .addOnSuccessListener {
                             // Actualización exitosa del campo "realizados" del usuario
                             Log.d(TAG, "Actualización exitosa del campo 'realizados' del usuario")
-                            // Realizar acciones adicionales o mostrar un mensaje de éxito
+
                         }
                         .addOnFailureListener { e ->
-                            // Manejar el error de actualización del campo "realizados" del usuario
+                            // Manejo del error de actualización del campo "realizados" del usuario
                             Log.e(TAG, "Error al actualizar el campo 'realizados' del usuario: ${e.message}")
-                            // Realizar acciones adicionales o mostrar un mensaje de error
                         }
                 }
             }
                 .addOnFailureListener { e ->
-                    // Manejar el error de obtención del documento del usuario
+                    // Manejo del error de obtención del documento del usuario
                     Log.e(TAG, "Error al obtener el documento del usuario: ${e.message}")
-                    // Realizar acciones adicionales o mostrar un mensaje de error
                 }
         }
     }
@@ -115,13 +113,13 @@ class PublicacionViewModel(private val onDelegarClick: ((String) -> Unit)? = nul
     private suspend fun obtenerPublicacion(publicacionId: String): Publication? {
         return withContext(Dispatchers.IO) {
             // Lógica para obtener la publicación correspondiente por su ID
-            // Utiliza tu base de datos o servicio para obtenerla
+
             try {
                 val document = publicacionesRef.document(publicacionId).get().await()
                 val publicacion = document.toObject(Publication::class.java)
                 return@withContext publicacion
             } catch (e: Exception) {
-                // Manejar el error de obtención de la publicación
+                // Manejo del error de obtención de la publicación
                 return@withContext null
             }
         }
@@ -133,7 +131,6 @@ class PublicacionViewModel(private val onDelegarClick: ((String) -> Unit)? = nul
             try {
                 publicacionesRef.document(publicacion.id).set(publicacion).await()
             } catch (e: Exception) {
-                // Manejar el error de guardado de la publicación
             }
         }
     }
@@ -235,7 +232,7 @@ class PublicacionRepository {
 
                 return@withContext publicationList
             } catch (e: Exception) {
-                // Manejar el error de búsqueda
+                // Manejo del error de búsqueda
                 return@withContext emptyList()
             }
         }

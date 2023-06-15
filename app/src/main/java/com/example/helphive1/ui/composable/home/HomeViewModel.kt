@@ -44,7 +44,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun loadMorePublications() {
-        // Aquí podrías implementar la lógica para cargar más publicaciones si es necesario
+
     }
 }
 
